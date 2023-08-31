@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.util.HashMap;
 
 public class ATM {
@@ -69,5 +70,14 @@ public class ATM {
         } else {
             return false;
         }
+    }
+
+    public void audit() throws Exception {
+        FileWriter writer = new FileWriter("AccountAudit.txt");
+        for (String userID : accountMap.keySet()) {
+            writer.write(userID);
+            writer.write(Double.toString(accountMap.get(userID)));
+        }
+        writer.close();
     }
 }
