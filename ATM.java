@@ -56,4 +56,18 @@ public class ATM {
             throw new Exception("User does not exist.");
         }
     }
+
+    public boolean transferMoney(String fromAccount, String toAccount, double amount) {
+        if (accountMap.containsKey(fromAccount) && accountMap.containsKey(toAccount)) {
+            if (accountMap.get(fromAccount) >= amount) {
+                accountMap.put(fromAccount, accountMap.get(fromAccount) - amount);
+                accountMap.put(toAccount, accountMap.get(toAccount) + amount);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 }
