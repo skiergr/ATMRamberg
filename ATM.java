@@ -26,4 +26,12 @@ public class ATM {
             throw new Exception("User does not exist.");
         }
     }
+
+    public double checkBalance(String userID) throws Exception {
+        if (accountMap.containsKey(userID)) {
+            return accountMap.get(userID);
+        } else {
+            throw new Exception("User does not exist.");
+        }
+    }
 }
