@@ -43,4 +43,17 @@ public class ATM {
             throw new Exception("User does not exist.");
         }
     }
+
+    public double withdrawMoney(String userID, double amount) throws Exception {
+        if (accountMap.containsKey(userID)) {
+            if (accountMap.get(userID) >= amount) {
+                accountMap.put(userID, accountMap.get(userID) - amount);
+                return amount;
+            } else {
+                throw new Exception("You are broke loser.");
+            }
+        } else {
+            throw new Exception("User does not exist.");
+        }
+    }
 }
