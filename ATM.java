@@ -34,4 +34,13 @@ public class ATM {
             throw new Exception("User does not exist.");
         }
     }
+
+    public double depositMoney(String userID, double amount) throws Exception {
+        if (accountMap.containsKey(userID)) {
+            accountMap.put(userID, accountMap.get(userID) + amount);
+            return amount;
+        } else {
+            throw new Exception("User does not exist.");
+        }
+    }
 }
