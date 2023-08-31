@@ -75,8 +75,8 @@ public class ATM {
     public void audit() throws Exception {
         FileWriter writer = new FileWriter("AccountAudit.txt");
         for (String userID : accountMap.keySet()) {
-            writer.write(userID);
-            writer.write(Double.toString(accountMap.get(userID)));
+            writer.write(userID + "\n");
+            writer.write(Double.toString(accountMap.get(userID)) + "\n");
         }
         writer.close();
     }
